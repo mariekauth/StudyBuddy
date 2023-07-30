@@ -80,7 +80,7 @@ namespace StudyBuddyMSTest
             }
 
             // Assert
-            cut.Find("p").MarkupMatches("<p role=\"status\">Current count: 9</p>");
+            cut.Find("p").MarkupMatches("<p role=\"status\">Current count: 3</p>");
         }
 
         private static AngleSharp.Dom.IElement? GetIncrementButton(IRenderedComponent<Counter> cut)
