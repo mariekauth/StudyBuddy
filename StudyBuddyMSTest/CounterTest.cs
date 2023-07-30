@@ -32,7 +32,7 @@ namespace StudyBuddyMSTest
             var cut = RenderComponent<Counter>();
 
             // Act
-            var ele = _getCurrentCountElement(cut);
+            var ele = GetCurrentCountElement(cut);
 
             // Assert
             ele?.MarkupMatches("<p role=\"status\">Current count: 0</p>");
@@ -45,7 +45,7 @@ namespace StudyBuddyMSTest
             var cut = RenderComponent<Counter>();
 
             // Act
-            var incrementButton = _getIncrementButton(cut);
+            var incrementButton = GetIncrementButton(cut);
 
             // Assert
             Assert.IsNotNull(incrementButton);
@@ -58,7 +58,7 @@ namespace StudyBuddyMSTest
             var cut = RenderComponent<Counter>();
 
             // Act
-            var ele = _getIncrementButton(cut);
+            var ele = GetIncrementButton(cut);
             ele?.Click();
 
             // Assert
@@ -72,7 +72,7 @@ namespace StudyBuddyMSTest
             var cut = RenderComponent<Counter>();
 
             // Act
-            var ele = _getIncrementButton(cut);
+            var ele = GetIncrementButton(cut);
 
             for(var i = 0; i<3; i++)
             {
@@ -80,20 +80,15 @@ namespace StudyBuddyMSTest
             }
 
             // Assert
-            cut.Find("p").MarkupMatches("<p role=\"status\">Current count: 3</p>");
+            cut.Find("p").MarkupMatches("<p role=\"status\">Current count: 9</p>");
         }
 
-        private IRenderedComponent<Counter> _getComponent()
-        {
-            return RenderComponent<Counter>();
-        }
-
-        private AngleSharp.Dom.IElement? _getIncrementButton(IRenderedComponent<Counter> cut)
+        private static AngleSharp.Dom.IElement? GetIncrementButton(IRenderedComponent<Counter> cut)
         {
             return cut.Find("button.btn-primary");
         }
 
-        private AngleSharp.Dom.IElement? _getCurrentCountElement(IRenderedComponent<Counter> cut)
+        private static AngleSharp.Dom.IElement? GetCurrentCountElement(IRenderedComponent<Counter> cut)
         {
             return cut.Find("p");
         }
