@@ -87,6 +87,13 @@ namespace StudyBuddyMSTest
             cut.Find("p").MarkupMatches("<p role=\"status\">Current count: 3</p>");
         }
 
+        [TestMethod]
+        public void HasCompenentPageName()
+        {
+            var cut = RenderComponent<Counter>();
+            Assert.IsTrue(cut.HasComponent<PageNameComponent>());
+        }
+
         public static AngleSharp.Dom.IElement? GetRenderedPageName(IRenderedComponent<Counter> cut) => cut.Find("h1");
 
         private static AngleSharp.Dom.IElement? GetIncrementButton(IRenderedComponent<Counter> cut)
