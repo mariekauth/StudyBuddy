@@ -1,14 +1,22 @@
-﻿@page "/counter"
+﻿@page "/counter/{action?}/{value?}"
 
 <PageTitle>Counter</PageTitle>
 
-<PageNameComponent Value="Counter" />
+<PageNameComponent Value="@pageName" />
 
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary btn-counter" @onclick="IncrementCount">Click me</button>
 
 @code {
+    [Parameter]
+    public string action { get; set; }
+
+    [Parameter]
+    public string value { get; set; }
+
+    private int incrementAmount = 1;
+    private string pageName = "Counter";
     private int currentCount = 0;
 
     private void IncrementCount()
