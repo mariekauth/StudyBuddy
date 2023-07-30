@@ -1,0 +1,61 @@
+name: StudyBuddy CI/CD
+
+on:
+    push:
+      branches:
+      - main
+    pull_request:
+      branches:
+      - main
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: [ '6.0.x' ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Display dotnet version
+        run: dotnet --version
+
+      - name: Clean StudyBuddy
+        run: dotnet clean
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build StudyBuddy
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
+
+  deploy-to-github-pages:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Install .NET WASM Build Tools
+      run: dotnet workload install wasm-tools
+
+    - name: Publish .NET Core Project
+      run: dotnet publish StudyBuddy/StudyBuddy.csproj -c:Release -p:GHPages=true -o dist/Web --nologo
+
+    - name: Commit wwwroot to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: dist/Web/wwwroot
