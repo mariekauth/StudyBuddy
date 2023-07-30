@@ -1,5 +1,7 @@
-using Bunit;
+﻿using Bunit;
 using StudyBuddy.Pages;
+using StudyBuddy.Shared;
+using Index = StudyBuddy.Pages.Index;
 
 namespace StudyBuddyMSTest
 {
@@ -19,10 +21,10 @@ namespace StudyBuddyMSTest
             var cut = RenderComponent<Counter>();
 
             // Act
-            var ele = cut.Find("h1");
+            var ele = GetRenderedPageName(cut);
 
             // Assert
-            ele.MarkupMatches("<h1>Counter</h1>");
+            ele?.MarkupMatches("<h1>Counter</h1>");
         }
 
         [TestMethod]
@@ -58,11 +60,13 @@ namespace StudyBuddyMSTest
             var cut = RenderComponent<Counter>();
 
             // Act
-            var ele = GetIncrementButton(cut);
-            ele?.Click();
+            var button = GetIncrementButton(cut);
+            button?.Click();
+
+            var currentCount = GetCurrentCountElement(cut);
 
             // Assert
-            cut.Find("p").MarkupMatches("<p role=\"status\">Current count: 1</p>");
+            currentCount?.MarkupMatches("<p role=\"status\">Current count: 1</p>");
         }
 
         [TestMethod]
@@ -74,7 +78,7 @@ namespace StudyBuddyMSTest
             // Act
             var ele = GetIncrementButton(cut);
 
-            for(var i = 0; i<3; i++)
+            for (var i = 0; i < 3; i++)
             {
                 ele?.Click();
             }
@@ -83,9 +87,11 @@ namespace StudyBuddyMSTest
             cut.Find("p").MarkupMatches("<p role=\"status\">Current count: 3</p>");
         }
 
+        public static AngleSharp.Dom.IElement? GetRenderedPageName(IRenderedComponent<Counter> cut) => cut.Find("h1");
+
         private static AngleSharp.Dom.IElement? GetIncrementButton(IRenderedComponent<Counter> cut)
         {
-            return cut.Find("button.btn-primary");
+            return cut.Find(".btn-counter");
         }
 
         private static AngleSharp.Dom.IElement? GetCurrentCountElement(IRenderedComponent<Counter> cut)
