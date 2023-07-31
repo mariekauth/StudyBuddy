@@ -475,6 +475,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-# Temporary Fix for deployment pipeline
-StudyBuddy/wwwroot/StudyBuddy/*
