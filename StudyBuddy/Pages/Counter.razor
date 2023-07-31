@@ -1,8 +1,8 @@
 ﻿@page "/counter/{action?}/{value?}"
 
-<PageTitle>Counter</PageTitle>
-
-<PageNameComponent Value="@pageName" />
+<PageTitle>@PageTitle</PageTitle>
+<PageLabelComponent Value="@PageLabel" />
+<TagLineComponent Value="@TagLine" />
 
 <p role="status">Current count: @currentCount</p>
 
@@ -15,8 +15,11 @@
     [Parameter]
     public string value { get; set; } = "1";
 
+    private string PageTitle = "Counter";
+    private string PageLabel = "Counter";
+    private string TagLine = null;
+
     private int incrementAmount = 1;
-    private string pageName = "Counter";
     private int currentCount = 0;
 
     private void IncrementCount()

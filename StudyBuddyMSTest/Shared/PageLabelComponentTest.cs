@@ -1,10 +1,11 @@
 ﻿using Bunit;
 using StudyBuddy.Shared;
+using System.Reflection.Emit;
 
 namespace StudyBuddyMSTest.Shared
 {
     [TestClass]
-    public class PageNameComponentTest : TestContextWrapper
+    public class PageLabelComponentTest : TestContextWrapper
     {
         [TestInitialize]
         public void Setup()
@@ -18,9 +19,9 @@ namespace StudyBuddyMSTest.Shared
         [TestMethod]
         public void PageNameComponentRendorsCorrectly()
         {
-            var cut = RenderComponent<PageNameComponent>(parameters => parameters.Add(p => p.Value, "Parameter Value"));
-            var ele = cut.Find("h1");
-            ele?.MarkupMatches("<h1>Parameter Value</h1>");
+            var cut = RenderComponent<PageLabelComponent>(parameters => parameters.Add(p => p.Value, "Parameter Value"));
+            var ele = cut.Find("h1.page-label");
+            ele?.MarkupMatches("<h1 class=\"page-label\">Parameter Value</h1>");
         }
     }
 }

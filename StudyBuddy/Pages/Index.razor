@@ -1,8 +1,13 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
-<PageNameComponent Value="Hello, world!" />
-
-Welcome to your new app.
+<PageTitle>@PageTitle</PageTitle>
+<PageLabelComponent Value="@PageLabel" />
+<TagLineComponent Value="@TagLine" />
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+    private string PageTitle = "Index";
+    private string PageLabel = "Hello, world!";
+    private string TagLine = "Welcome to your new app.";
+}
