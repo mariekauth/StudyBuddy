@@ -1,4 +1,4 @@
-name: StudyBuddy CI/CD
+name: StudyBuddy CI
 
 on:
     push:
