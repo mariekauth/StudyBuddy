@@ -8,6 +8,12 @@ There was also a need to study Blazor, and many other things. In addition there 
 
 Instead, I decided to repurpose the whole project, and make it the Study Buddy.
 
+# Tools
+- [Repo](https://github.com/mariekauth/StudyBuddy)
+- [Wiki](https://github.com/mariekauth/StudyBuddy/wiki)
+- [Project Board](https://github.com/users/mariekauth/projects/3)
+- [Site](https://mariekauth.github.io/StudyBuddy/) --- Curerntly not deployed
+
 ## Current Use
 - Study Blazor
 - Setup CI/CD pipeline
