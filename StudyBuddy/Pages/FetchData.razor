@@ -1,11 +1,9 @@
 ﻿@page "/fetchdata"
 @inject HttpClient Http
 
-<PageTitle>Weather forecast</PageTitle>
-
-<h1>Weather forecast</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
+<PageTitle>@PageTitle</PageTitle>
+<PageLabelComponent Value="@PageLabel" />
+<TagLineComponent Value="@TagLine" />
 
 @if (forecasts == null)
 {
@@ -38,6 +36,9 @@ else
 
 @code {
     private WeatherForecast[]? forecasts;
+    private string PageTitle = "Weather forecast";
+    private string PageLabel = "Weather forecast";
+    private string TagLine = "This component demonstrates fetching data from the server.";
 
     protected override async Task OnInitializedAsync()
     {

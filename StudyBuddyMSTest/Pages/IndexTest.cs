@@ -16,10 +16,24 @@ namespace StudyBuddyMSTest.Pages
         public void TearDown() => TestContext?.Dispose();
 
         [TestMethod]
-        public void HasCompenenSurveyPrompt()
+        public void HasSurveyPromptCompenen()
         {
             var cut = RenderComponent<StudyBuddy.Pages.Index>();
             Assert.IsTrue(cut.HasComponent<SurveyPrompt>());
+        }
+
+        [TestMethod]
+        public void HasPageLabelComponent()
+        {
+            var cut = RenderComponent<StudyBuddy.Pages.Index>();
+            Assert.IsTrue(cut.HasComponent<PageLabelComponent>());
+        }
+
+        [TestMethod]
+        public void HasTagLineComponent()
+        {
+            var cut = RenderComponent<StudyBuddy.Pages.Index>();
+            Assert.IsTrue(cut.HasComponent<TagLineComponent>());
         }
     }
 }

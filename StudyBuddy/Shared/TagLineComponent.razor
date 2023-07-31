@@ -1,0 +1,9 @@
+﻿@if (!string.IsNullOrEmpty(Value))
+{
+    <span class="tag-line">@Value</span>
+}
+
+@code {
+    [Parameter]
+    public string? Value { get; set; }
+}

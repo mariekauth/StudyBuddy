@@ -21,10 +21,10 @@ namespace StudyBuddyMSTest.Pages
             var cut = RenderComponent<Counter>();
 
             // Act
-            var ele = GetRenderedPageName(cut);
+            var ele = GetRenderedPageLabel(cut);
 
             // Assert
-            ele?.MarkupMatches("<h1>Counter</h1>");
+            ele?.MarkupMatches("<h1 class=\"page-label\">Counter</h1>");
         }
 
         [TestMethod]
@@ -91,10 +91,10 @@ namespace StudyBuddyMSTest.Pages
         public void HasCompenentPageName()
         {
             var cut = RenderComponent<Counter>();
-            Assert.IsTrue(cut.HasComponent<PageNameComponent>());
+            Assert.IsTrue(cut.HasComponent<PageLabelComponent>());
         }
 
-        public static AngleSharp.Dom.IElement? GetRenderedPageName(IRenderedComponent<Counter> cut) => cut.Find("h1");
+        public static AngleSharp.Dom.IElement? GetRenderedPageLabel(IRenderedComponent<Counter> cut) => cut.Find("h1.page-label");
 
         private static AngleSharp.Dom.IElement? GetIncrementButton(IRenderedComponent<Counter> cut)
         {
