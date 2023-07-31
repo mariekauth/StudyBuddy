@@ -1,0 +1,174 @@
+﻿@page "/flashcards"
+@inject HttpClient Http
+@inject IJSRuntime JSRuntime
+
+<PageTitle>@PageTitle</PageTitle>
+<PageLabelComponent Value="@PageLabel" />
+<TagLineComponent Value="@TagLine" />
+
+<style type="text/css">
+    .flash-card-container {
+
+    }
+
+    .flash-card {
+        background-color: #30106b;
+        border: 3px ridge #321775;
+        width: 350px;
+        margin-bottom: 5px;
+    }
+
+    .flash-card-category {
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .flash-card-name {
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .flash-card-description {
+        background-color: #fff;
+        padding: 3px 10px 3px 10px;
+        min-height: 500px;
+    }
+
+    .flash-card-action {
+        color: #fff;
+        text-align: center;
+        padding: 3px 10px 3px 10px;
+    }
+
+    .btn {
+        margin-right: 5px;
+    }
+</style>
+
+@if (FlashCardItems == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="flash-card-container">
+        <div class="flash-card">
+            <div class="flash-card-category">@FlashCardItems[@CurrentIndex].categories</div>
+            <div class="flash-card-name">@CurrentRecordNumber of @MaxRecordNumber<br />@FlashCardItems[@CurrentIndex].name</div>
+            <div class="flash-card-description">
+                @if (@ShowDetails)
+                {
+                    @FlashCardItems[@CurrentIndex].description
+                }
+                else
+                {
+                    <center>@FlashCardItems[@CurrentIndex].name</center>
+                }
+            </div>
+            <div class="flash-card-action">
+                <button class="btn btn-primary btn-first" @onclick="First"><span class="oi oi-media-step-backward" aria-hidden="true"></span></button>
+                <button class="btn btn-primary btn-previous" @onclick="Previous"><span class="oi oi-media-skip-backward" aria-hidden="true"></span></button>
+                <button class="btn btn-primary btn-show" @onclick="ToggleShow"><span class="oi oi-loop-square" aria-hidden="true"></span> Flip</button>
+                <button class="btn btn-primary btn-next" @onclick="Next"><span class="oi oi-media-skip-forward" aria-hidden="true"></span></button>
+                <button class="btn btn-primary btn-last" @onclick="Last"><span class="oi oi-media-step-forward" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private string PageTitle = "Flash Cards";
+    private string PageLabel = "Flash Cards";
+    private string TagLine = "Design Patterns";
+
+    private int CurrentIndex = 0;
+    private int MaxIndex = 0;
+    private int CurrentRecordNumber = 0;
+    private int MaxRecordNumber = 0;
+    private bool ShowDetails = false;
+
+    private void Previous()
+    {
+        ShowDetails = false;
+        ReduceIndexNumber();
+    }
+
+    private void ToggleShow()
+    {
+        if (ShowDetails)
+        {
+            ShowDetails = false;
+        } else
+        {
+            ShowDetails = true;
+        }
+    }
+
+    private void Next()
+    {
+        ShowDetails = false;
+        IncreaseIndexNumber();
+    }
+
+    private void First()
+    {
+        ShowDetails = false;
+        CurrentIndex = 0;
+        CurrentRecordNumber = CurrentIndex + 1;
+    }
+
+    private void Last()
+    {
+        ShowDetails = false;
+        CurrentIndex = MaxIndex;
+        CurrentRecordNumber = CurrentIndex + 1;
+    }
+
+    private void IncreaseIndexNumber()
+    {
+        CurrentIndex = CurrentIndex < MaxIndex ? CurrentIndex + 1 : MaxIndex;
+        CurrentRecordNumber = CurrentIndex + 1;
+    }
+
+    private void ReduceIndexNumber()
+    {
+        CurrentIndex = CurrentIndex > 0 ? CurrentIndex - 1 : 0;
+        CurrentRecordNumber = CurrentIndex + 1;
+    }
+
+    private List<FlashCardItem>? FlashCardItems;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            FlashCardItems = await Http.GetFromJsonAsync<List<FlashCardItem>>("sample-data/flash-cards.json");
+            FlashCardItems = FlashCardItems?.FindAll(c => c.isActive);
+            MaxIndex = FlashCardItems?.Count -1 ?? 0;
+            CurrentRecordNumber = CurrentIndex + 1;
+            MaxRecordNumber = MaxIndex + 1;
+        }
+        catch (Exception)
+        {
+            FlashCardItems = new List<FlashCardItem>();
+            MaxIndex = 0;
+            CurrentRecordNumber = 0;
+            MaxRecordNumber = 0;
+        }
+    }
+
+    public class FlashCardItem
+    {
+        public string? id { get; set; }
+        public string? name { get; set; }
+        public string? type { get; set; }
+        public string? description { get; set; }
+        public string? categories { get; set; }
+        public string? detailsLink { get; set; }
+        public bool isActive { get; set; }
+    }
+}
