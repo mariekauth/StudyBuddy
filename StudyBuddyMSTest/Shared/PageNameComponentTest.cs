@@ -4,7 +4,7 @@ using StudyBuddy.Shared;
 namespace StudyBuddyMSTest.Shared
 {
     [TestClass]
-    internal class PageNameComponentTest : TestContextWrapper
+    public class PageNameComponentTest : TestContextWrapper
     {
         [TestInitialize]
         public void Setup()

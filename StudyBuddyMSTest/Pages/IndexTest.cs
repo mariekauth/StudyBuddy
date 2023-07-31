@@ -4,7 +4,7 @@ using StudyBuddy.Shared;
 namespace StudyBuddyMSTest.Pages
 {
     [TestClass]
-    internal class IndexTest : TestContextWrapper
+    public class IndexTest : TestContextWrapper
     {
         [TestInitialize]
         public void Setup()
