@@ -10,10 +10,10 @@
 
 @code {
     [Parameter]
-    public string action { get; set; }
+    public string action { get; set; } = "IncrementBy";
 
     [Parameter]
-    public string value { get; set; }
+    public string value { get; set; } = "1";
 
     private int incrementAmount = 1;
     private string pageName = "Counter";

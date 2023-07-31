@@ -3,7 +3,7 @@ using StudyBuddy.Pages;
 using StudyBuddy.Shared;
 using Index = StudyBuddy.Pages.Index;
 
-namespace StudyBuddyMSTest
+namespace StudyBuddyMSTest.Pages
 {
     [TestClass]
     public class CounterTest : TestContextWrapper
