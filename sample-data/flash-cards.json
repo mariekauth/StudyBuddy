@@ -1,0 +1,263 @@
+[
+  {
+    "id": "0473c2b2-cd51-46ad-b4e0-6ea45917dc41",
+    "name": "Automation First",
+    "type": "Design Pattern",
+    "description": "Automated testing should be part of the primary code base.",
+    "categories": "Core First Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "70301e77-b85d-48fa-89d9-e31b717facf4",
+    "name": "Contract First",
+    "type": "Design Pattern",
+    "description": "When creating user stories, the contract between how two entities interact should be decided before the first line of code is written.",
+    "categories": "Core First Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "0f31d78e-2788-47c2-a7e0-bb4996483440",
+    "name": "DevSecOpsFirst",
+    "type": "Design Pattern",
+    "description": "There should be a project board to track stories, the build and deployment pipelines should be setup and working.",
+    "categories": "Core First Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "5ca3b025-7d85-4044-87bd-78ea87113a18",
+    "name": "Factory Method",
+    "type": "Design Pattern",
+    "description": "We declare a class (Ideally name it {FactoryName}Factory). The purpose of this class (factory) is to create the appropriate object.",
+    "categories": "Creational Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "73869fa7-3089-41e7-8c65-faa1d82d07d0",
+    "name": "Abstract Factory",
+    "type": "Design Pattern",
+    "description": "Extends the Factory Pattern. The purpose of this class (factory producer) is to create a new factory.",
+    "categories": "Creational Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "0952dc45-28b8-4970-8bb8-b08e5a41e120",
+    "name": "Builder",
+    "type": "Design Pattern",
+    "description": "The purpose of a builder class is to combine multiple items, into a single item. E-Commerce sites would be a good use case. Example: Purchase computer, monitor, and keyboard each with its own price. Or purchase the set for a different price.",
+    "categories": "Creational Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "93fb308e-0552-4a61-8881-aa2636728b85",
+    "name": "Prototype",
+    "type": "Design Pattern",
+    "description": "When you make an object a prototype, it's class has a method called clone, or copy. The addition of that method, allows you to copy, or clone that object.",
+    "categories": "Creational Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "d670572e-b877-4c65-99a2-302ae7b4f6f6",
+    "name": "Singleton",
+    "type": "Design Pattern",
+    "description": "The class can only be instantiated once.",
+    "categories": "Creational Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "3e3ccb03-6538-494c-90b0-be3b95f02d3f",
+    "name": "Object Pool",
+    "type": "Design Pattern",
+    "description": "A collection of instantiated objects, that are expensive to create, but frequently reused.",
+    "categories": "Creational Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "bc21a864-a598-43dd-8651-2188595a2a0e",
+    "name": "Adapter",
+    "type": "Design Pattern",
+    "description": "An adapter is part of the anti-corruption layer. It allows two incompatible interfaces to communicate. You can think of the adapter as a mediator, or go between.",
+    "categories": "Structural Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "2cfc0cf2-8dfe-4355-bd4d-9527ca833a20",
+    "name": "Bridge",
+    "type": "Design Pattern",
+    "description": "The base class uses abstraction to separate abstraction and implementation.",
+    "categories": "Structural Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "1012b1d2-65fc-4cfa-85c6-e20cebdafbb3",
+    "name": "Composite",
+    "type": "Design Pattern",
+    "description": "Used for hierarchy or tree structures.",
+    "categories": "Structural Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "db2af2fc-8691-49af-9ff3-f8740bf64248",
+    "name": "Decorator",
+    "type": "Design Pattern",
+    "description": "Add functionality by adding a new class, that will accept the instantiated item as a parameter.",
+    "categories": "Structural Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "fd1744e1-4e5b-4633-a321-c3e16eb2e183",
+    "name": "Facade",
+    "type": "Design Pattern",
+    "description": "Provide a simplified interface to a library or framework. Imagine 10 video players (They support different features, etc). However, the facade will have Play, Stop, Rewind, Fast Forward. All of the implementation details are hidden.",
+    "categories": "Structural Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "403445de-ccfc-43e2-b4b1-3d516aaf51d9",
+    "name": "Flyweight",
+    "type": "Design Pattern",
+    "description": "A class gets instantiated once, but is used by many other individual items (becoming a property of that item). Imagine a video game with flying arrows. Each one has a position, etc. But based on type-of-arrow it will do x amount of damage, look a certain way, have an associated image, etc. Instead of adding each of those to the individual arrow, it has a property type-of-arrow which references can then be used for all the calculations etc. No need to add this to each item.",
+    "categories": "Structural Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "5d9a3780-76b2-428d-abc1-67adb6cc457b",
+    "name": "Private Class Data (Not always listed)",
+    "type": "Design Pattern",
+    "description": "Setting properties and methods as private encapsulates them and prevents their use outside of the class. The properties can then be exposed using getters and setters. If later, you wish to log everytime a property is changed, or need to change the way properties are set, you only need to change what needs updated. Another example would be age. This should not be set directly, but instead when the birthdate is set, and getAge() is called, the age would be automatically calculated. This also works for a car program. You fill() the tank, which changes the amount of fuel. You drive() the car which lowers the amount of fuel (among other things). Then you getFuel() to determine how much fuel is left.",
+    "categories": "Structural Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "f9adca17-bf35-4ec2-a976-6b0002954985",
+    "name": "Proxy",
+    "type": "Design Pattern",
+    "description": "The database manager, would be an example of a proxy. It would allow you to switch out the real database without needing to change the code that utilizes it, the clients would never need to know. Example: You plan to implement a database, but it is not ready. A proxy is also a type of mediator or anti-corruption layer.",
+    "categories": "Structural Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "d35134e3-8c4d-40f8-9f91-c7c968c80202",
+    "name": "Chain of Responsibility",
+    "type": "Design Pattern",
+    "description": "Performs a series of tasks sequentially using handlers. If a handler in the chain either fails, or can finish processing the request, the next handler may not be called.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "14642135-14a2-4543-81b3-d9147cc54974",
+    "name": "Command",
+    "type": "Design Pattern",
+    "description": "Encapsulates a request as an object",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "cd33beb2-32c5-41ae-8382-030c413db019",
+    "name": "Interpreter",
+    "type": "Design Pattern",
+    "description": "Translate code, symbols, language, etc.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "15ba5a32-1761-470b-8a8f-5883b75b64c5",
+    "name": "Iterator",
+    "type": "Design Pattern",
+    "description": "Looping - Not just looping through items, but different strategies for doing so.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "276e5604-1d31-47d6-ae79-369f7ee78827",
+    "name": "Mediator",
+    "type": "Design Pattern",
+    "description": "The mediator handles communication between two entities.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "3ce2fa64-44c0-46aa-9394-f69a712f8568",
+    "name": "Memento",
+    "type": "Design Pattern",
+    "description": " Like a mediator for state management. Instead of each entity calling the individual state management, they all call memento, which either handles it directly, or passes the responsibility to the handler for that specific entity. It only returns the state for the entity that called it, allowing history to be retrieved.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "79c4d669-06ed-4885-88dc-872c651a61fc",
+    "name": "Null Object (Not always listed)",
+    "type": "Design Pattern",
+    "description": "In the Null Object pattern, we return an object of the correct type, but with methods to handle null.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "7b325889-adf1-4f6b-b720-60160c65ee0d",
+    "name": "Observer",
+    "type": "Design Pattern",
+    "description": "Example: Event emitter, Event Listeners. The listeners would be the observer.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "27e1031c-f9de-4732-9c19-7e9fac416ee7",
+    "name": "State",
+    "type": "Design Pattern",
+    "description": "Current values. Handles actions when the values (or current state) change.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "2b19b4b7-f65c-46c7-b410-204f350085e7",
+    "name": "Strategy",
+    "type": "Design Pattern",
+    "description": "Classes implement the same Interface, but have different behaviors defined.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "2d499dc1-954b-4e65-90bd-dfd2bc535938",
+    "name": "Template Method",
+    "type": "Design Pattern",
+    "description": "Defines skeleton outline of what will occur in an abstract or base class, then overrides the methods with different behaviors as appropriate.",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  },
+  {
+    "id": "cf0e993a-e207-4557-a689-806dbc61df96",
+    "name": "Visitor",
+    "type": "Design Pattern",
+    "description": "Add new operations to existing classes",
+    "categories": "Behavioral Design Patterns",
+    "detailsLink": "Later",
+    "isActive": true
+  }
+]
