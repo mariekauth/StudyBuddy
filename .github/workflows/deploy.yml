@@ -1,0 +1,32 @@
+name: Study Buddy Deploy
+
+# Run workflow on every push to the deploy branch
+on:
+  push:
+    branches:
+      - deploy
+  pull_request:
+    branches:
+      - deploy
+permissions:
+  contents: write
+
+jobs:
+  deploy-to-github-pages:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Install .NET WASM Build Tools
+      run: dotnet workload install wasm-tools
+    - name: Publish .NET Core Project
+      run: dotnet publish StudyBuddy/StudyBuddy.csproj -c:Release -p:GHPages=true -o dist/Web --nologo
+    - name: Commit wwwroot to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: dist/Web/wwwroot
