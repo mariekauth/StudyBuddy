@@ -12,7 +12,7 @@ Instead, I decided to repurpose the whole project, and make it the Study Buddy.
 - [Repo](https://github.com/mariekauth/StudyBuddy)
 - [Wiki](https://github.com/mariekauth/StudyBuddy/wiki)
 - [Project Board](https://github.com/users/mariekauth/projects/3)
-- [Site](https://mariekauth.github.io/StudyBuddy/) --- Curerntly not deployed
+- [Site](https://mariekauth.github.io/StudyBuddy/)
 
 ## Current Use
 - Study Blazor
@@ -22,7 +22,7 @@ Instead, I decided to repurpose the whole project, and make it the Study Buddy.
 ## Features Coming Soon
 - Fibonacci Counter
 - Count by 1, 2, 3, 5, 7, 9, 10, and Fibonacci
-- Flash Cards
+- [Flash Cards](https://mariekauth.github.io/StudyBuddy/flashcards)
 - Cross Word Puzzles
 - Word Search
 - Quiz
