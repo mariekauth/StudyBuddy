@@ -1,7 +1,6 @@
 ﻿using Bunit;
 using StudyBuddy.Pages;
 using StudyBuddy.Shared;
-using Index = StudyBuddy.Pages.Index;
 
 namespace StudyBuddyMSTest.Pages
 {
@@ -85,6 +84,28 @@ namespace StudyBuddyMSTest.Pages
 
             // Assert
             cut.Find("p").MarkupMatches("<p role=\"status\">Current count: 3</p>");
+        }
+
+        [TestMethod]
+        public void CounterIncrementsCorrectlyWhenIncrementByIs2AndClickedThreeTimes()
+        {
+            // Setup
+            var cut = RenderComponent<Counter>(
+                    parameters => parameters
+                    .Add(p => p.Action, "IncrementBy") 
+                    .Add(p => p.Value, "2")
+                );
+
+            // Act
+            var ele = GetIncrementButton(cut);
+
+            for (var i = 0; i < 3; i++)
+            {
+                ele?.Click();
+            }
+
+            // Assert
+            cut.Find("p").MarkupMatches("<p role=\"status\">Current count: 6</p>");
         }
 
         [TestMethod]
