@@ -21,25 +21,22 @@
 
     private int incrementAmount = 1;
     private int currentCount = 0;
+    private int lastCount = 0;
 
     protected override void OnInitialized()
     {
         try
         {
-            if (Action?.ToLower() == "Fibonacci")
+            if (Action?.ToLower() == "fibonacci")
             {
-                // Nicole todo: Handle Fibonacci counter 
+                SetupFibonacciCount();
             }
             else
             {
-                incrementAmount = Int32.Parse(Value);
-
-                PageLabel = (incrementAmount == 1) 
-                    ? PageLabel = "Counter" 
-                    : PageLabel = $"Count By {incrementAmount.ToString()}";
+                SetupIncrementCount();
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             // TODO: Handle exception
             PageLabel = "Counter";
@@ -49,6 +46,35 @@
 
     private void IncrementCount()  
     {
+        if (Action?.ToLower() == "fibonacci")
+        {
+            IncrementCountFibonacci();
+        }
+        else
+        {
+            currentCount = currentCount + incrementAmount;
+        }
+    }
+
+    private void IncrementCountFibonacci()
+    {
+        lastCount = currentCount;
         currentCount = currentCount + incrementAmount;
+        incrementAmount = lastCount;
+    }
+
+    private void SetupIncrementCount()
+    {
+        incrementAmount = Int32.Parse(Value);
+
+        PageLabel = (incrementAmount == 1)
+            ? PageLabel = "Counter"
+            : PageLabel = $"Count By {incrementAmount.ToString()}";
+    }
+
+    private void SetupFibonacciCount()
+    {
+        PageLabel = "Fibonacci Counter";
+        incrementAmount = 1;
     }
 }
